@@ -8,19 +8,19 @@
     >
       <div v-for="item in list" :key="item.key">
         <el-menu-item
+          @click="toMenuItem(item)"
           :index="item.key"
-          v-if=" (item.children.length === 0)"
+          v-if="item.children.length === 0"
           >{{ item.title }}</el-menu-item
         >
         <el-submenu :index="item.key" v-else>
-          <template slot="title" >{{ item.title }}</template>
+          <template slot="title">{{ item.title }}</template>
           <el-menu-item
             :index="subItem.key"
             v-for="subItem in item.children"
             :key="subItem.key"
             >{{ subItem.title }}
           </el-menu-item>
-          <top-menu :list="item.children" :isChild="true"></top-menu>
         </el-submenu>
       </div>
     </el-menu>
@@ -39,6 +39,9 @@ export default {
   },
   methods: {
     handleSelect() {},
+    toMenuItem(item) {
+        console.log(item)
+    },
   },
 };
 </script>
