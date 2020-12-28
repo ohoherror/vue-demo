@@ -6,28 +6,21 @@
       @select="handleSelect"
       style="display:flex"
     >
-      <div v-for="item in list" :key="item.key">
-        <el-menu-item
-          @click="toMenuItem(item)"
-          :index="item.key"
-          v-if="item.children.length === 0"
-          >{{ item.title }}</el-menu-item
-        >
-        <el-submenu :index="item.key" v-else>
-          <template slot="title">{{ item.title }}</template>
-          <el-menu-item
-            :index="subItem.key"
-            v-for="subItem in item.children"
-            :key="subItem.key"
-            >{{ subItem.title }}
-          </el-menu-item>
-        </el-submenu>
-      </div>
+      <template v-for="item in list">
+        <menu-item
+          v-if="item.children === undefined"
+          :key="item.key"
+          :menu="item"
+        ></menu-item>
+        <menu-sub v-else :key="item.key" :menu="item"></menu-sub>
+      </template>
     </el-menu>
   </div>
 </template>
 
 <script>
+import menuItem from "../menuItem";
+import menuSub from "../menuSub";
 export default {
   name: "topMenu",
   data() {
@@ -37,10 +30,14 @@ export default {
     list: Array,
     isChild: Boolean,
   },
+  components: {
+    menuItem,
+    menuSub,
+  },
   methods: {
     handleSelect() {},
     toMenuItem(item) {
-        console.log(item)
+      console.log(item);
     },
   },
 };
