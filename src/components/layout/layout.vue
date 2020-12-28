@@ -1,12 +1,13 @@
 <template>
   <el-container>
-    <el-header>
-      <top-menu></top-menu>
-    </el-header>
+    <el-aside width="200px">
+      <left-menu></left-menu>
+    </el-aside>
+
     <el-container>
-      <el-aside width="200px">
-        <left-menu></left-menu>
-      </el-aside>
+      <el-header>
+        <top-menu :list="list"></top-menu>
+      </el-header>
       <el-main>
         <el-container>
           <el-header>
@@ -20,18 +21,21 @@
 </template>
 
 <script>
-import topMenu from "../topMenu";
-import leftMenu from "../leftMenu";
-import headMenu from "../headMenu";
+import topMenu from "@/components/allMenu/topMenu";
+import leftMenu from "../allMenu/leftMenu";
+import headMenu from "../allMenu/headMenu";
+import menu from "../allMenu/menu";
 export default {
   data() {
-    return {};
+    return {
+      list: menu
+    };
   },
-  component: {
+  components: {
     topMenu,
     leftMenu,
-    headMenu,
-  },
+    headMenu
+  }
 };
 </script>
 
