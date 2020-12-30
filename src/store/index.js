@@ -5,14 +5,14 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     menuPath: [],
-    asideMenu:[]
+    asideMenu: []
   },
   mutations: {
     getMenu(state, provider) {
       console.log(provider);
       state.menuPath = provider;
     },
-    getAsideMenu(state,provider){
+    getAsideMenu(state, provider) {
       state.asideMenu = provider;
     }
   },

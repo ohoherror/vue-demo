@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-aside width="250px">
-      <img src="@/assets/logo.png" style="width:50px;height:50px" alt="">
+      <img src="@/assets/logo.png" style="width:50px;height:50px" alt="" />
       <left-menu></left-menu>
     </el-aside>
 
@@ -12,7 +12,7 @@
       <el-main>
         <el-container>
           <el-header>
-            <head-menu></head-menu>
+            <head-tabs></head-tabs>
           </el-header>
           <el-main>
             <router-view />
@@ -26,7 +26,7 @@
 <script>
 import topMenu from "@/components/allMenu/topMenu";
 import leftMenu from "../allMenu/leftMenu";
-import headMenu from "../allMenu/headMenu";
+import headTabs from "../allMenu/headTabs";
 import menu from "../allMenu/menu";
 export default {
   data() {
@@ -37,7 +37,7 @@ export default {
   components: {
     topMenu,
     leftMenu,
-    headMenu
+    headTabs
   }
 };
 </script>

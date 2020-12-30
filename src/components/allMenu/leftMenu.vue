@@ -43,7 +43,7 @@ export default {
   // },
   components: {
     menuItem,
-    menuSub,
+    menuSub
   },
   mounted() {
     this.list = this.$store.state.asideMenu;
@@ -53,8 +53,8 @@ export default {
       handler(val) {
         console.log(val);
         this.list = this.$store.state.asideMenu;
-      },
-    },
+      }
+    }
   },
   methods: {
     handleSelect(index, indexPath) {
@@ -72,8 +72,8 @@ export default {
     },
     toMenuItem(item) {
       console.log(item);
-    },
-  },
+    }
+  }
 };
 </script>
 

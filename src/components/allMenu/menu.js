@@ -12,11 +12,11 @@ const list = [
           {
             title: "选项1.1",
             key: "1-1-1",
-            path: "/menu1",
-          },
-        ],
-      },
-    ],
+            path: "/menu1"
+          }
+        ]
+      }
+    ]
   },
   {
     title: "我是工作",
@@ -31,9 +31,9 @@ const list = [
           {
             title: "选项1.1",
             key: "2-1-1",
-            path: "/menu2",
-          },
-        ],
+            path: "/menu2"
+          }
+        ]
       },
       {
         title: "选项2",
@@ -48,13 +48,13 @@ const list = [
               {
                 title: "选项3.1",
                 key: "3-1-2",
-                path: "/menu3",
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  },
+                path: "/menu3"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 ];
 export default list;

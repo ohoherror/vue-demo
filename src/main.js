@@ -14,21 +14,20 @@ Vue.prototype.$store = store;
 new Vue({
   router,
   store,
-  render: (h) => h(App),
-  methods:{
-    ...mapMutations(["getAsideMenu"]),
+  render: h => h(App),
+  methods: {
+    ...mapMutations(["getAsideMenu"])
   },
   watch: {
     "$route.matched"(val) {
-      let asideAll = menu.filter(ele=>{
-        console.log(ele.path)
-        console.log(val[0])
-        return ele.path === val[0].path
-      })
-      this.getAsideMenu(asideAll)
+      let asideAll = menu.filter(ele => {
+        console.log(ele.path);
+        console.log(val[0]);
+        return ele.path === val[0].path;
+      });
+      this.getAsideMenu(asideAll);
       console.log(asideAll);
       console.log(menu);
-
-    },
-  },
+    }
+  }
 }).$mount("#app");

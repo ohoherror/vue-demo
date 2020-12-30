@@ -26,29 +26,42 @@ import { mapMutations } from "vuex";
 export default {
   name: "topMenu",
   data() {
-    return {};
+    return {
+      allTabs: [],
+    };
   },
   props: {
     list: Array,
-    isChild: Boolean
+    isChild: Boolean,
   },
   components: {
     menuItem,
-    menuSub
+    menuSub,
   },
   methods: {
     ...mapMutations(["getMenu"]),
     handleSelect(index, indexPath) {
-      // console.log(index)
-      // console.log(indexPath)
       this.getMenu(indexPath);
       this.$router.push(index);
-      // console.log(this.$store.menuPath);
+
+      for (let i = 0; i < this.list.length; i++) {
+        let ele = this.findOne(this.list[i]);
+        console.log(ele);
+      }
+    },
+    findOne(item) {
+      if (item.children === undefined) {
+        return item;
+      } else {
+        for (let i = 0; i < item.children.length; i++) {
+          return this.findOne(item.children[i]);
+        }
+      }
     },
     toMenuItem(item) {
       console.log(item);
-    }
-  }
+    },
+  },
 };
 </script>
 
