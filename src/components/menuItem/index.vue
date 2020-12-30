@@ -1,5 +1,5 @@
 <template>
-  <el-menu-item :index="menu.key">
+  <el-menu-item :index="menu.path">
     {{ menu.title }}
   </el-menu-item>
 </template>
@@ -10,9 +10,9 @@ export default {
     menu: {
       type: Object,
       required: false,
-      default: () => {},
-    },
-  },
+      default: () => {}
+    }
+  }
 };
 </script>
 

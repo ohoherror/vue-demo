@@ -8,6 +8,7 @@
     >
       <template v-for="item in list">
         <menu-item
+          :index="item.path"
           v-if="item.children === undefined"
           :key="item.key"
           :menu="item"
@@ -21,6 +22,7 @@
 <script>
 import menuItem from "../menuItem";
 import menuSub from "../menuSub";
+import { mapMutations } from "vuex";
 export default {
   name: "topMenu",
   data() {
@@ -28,18 +30,25 @@ export default {
   },
   props: {
     list: Array,
-    isChild: Boolean,
+    isChild: Boolean
   },
   components: {
     menuItem,
-    menuSub,
+    menuSub
   },
   methods: {
-    handleSelect() {},
+    ...mapMutations(["getMenu"]),
+    handleSelect(index, indexPath) {
+      // console.log(index)
+      // console.log(indexPath)
+      this.getMenu(indexPath);
+      this.$router.push(index);
+      // console.log(this.$store.menuPath);
+    },
     toMenuItem(item) {
       console.log(item);
-    },
-  },
+    }
+  }
 };
 </script>
 

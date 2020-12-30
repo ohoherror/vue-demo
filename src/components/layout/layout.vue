@@ -1,6 +1,7 @@
 <template>
   <el-container>
-    <el-aside width="200px">
+    <el-aside width="250px">
+      <img src="@/assets/logo.png" style="width:50px;height:50px" alt="">
       <left-menu></left-menu>
     </el-aside>
 
@@ -13,7 +14,9 @@
           <el-header>
             <head-menu></head-menu>
           </el-header>
-          <el-main></el-main>
+          <el-main>
+            <router-view />
+          </el-main>
         </el-container>
       </el-main>
     </el-container>

@@ -1,13 +1,13 @@
 <template>
-  <el-submenu :index="menu.key">
+  <el-submenu :index="menu.path">
+    <template slot="title">{{ menu.title }}</template>
     <template v-for="child in menu.children">
       <menu-item
         :key="child.key"
         v-if="child.children === undefined"
         :menu="child"
-        :index="child.key"
       ></menu-item>
-      <menu-sub v-else :key="child.key"></menu-sub>
+      <menu-sub v-else :menu="child" :key="child.key"></menu-sub>
     </template>
   </el-submenu>
 </template>
